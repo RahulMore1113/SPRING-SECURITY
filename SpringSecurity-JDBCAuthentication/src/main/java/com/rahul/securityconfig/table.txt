@@ -1,0 +1,14 @@
+create database security;
+
+CREATE TABLE security.users (
+    username VARCHAR(50) NOT NULL PRIMARY KEY,
+    password VARCHAR(250),
+    enabled TINYINT(1)
+);
+
+CREATE TABLE security.authorities (
+    username VARCHAR(50) NOT NULL PRIMARY KEY,
+    authorities VARCHAR(250),
+    FOREIGN KEY (username)
+        REFERENCES security.users (username)
+);
